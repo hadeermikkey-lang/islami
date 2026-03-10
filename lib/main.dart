@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:islami/core/splash/splash_view.dart';
+import 'package:islami/screens/radio/radio_screen.dart';
+import 'package:islami/screens/sibha/sibha.dart';
 
 import 'core/splash/splash_view2.dart';
 
@@ -16,8 +18,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Islami",
-      home: SplashView(),
-
+      home://Sebha(),
+      SplashView(),
+       // RadioScreen(),
 //<item name="android:windowBackground">#000000</item>
 
 

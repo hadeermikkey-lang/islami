@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
+import '../radio/radio_screen.dart';
 import 'Onbarding4.dart';
 import 'Onboarding5.dart';
 import 'onbarding3.dart';
@@ -33,7 +34,6 @@ class _OnboardingState extends State<Onboarding> {
                 });
               },
               children: [
-
                 Onboarding1(),
                 Onboarding2(),
                 Onboarding3(),
@@ -42,26 +42,29 @@ class _OnboardingState extends State<Onboarding> {
               ],
             ),
 
-
-
             Positioned(
               bottom: 10,
               left: 20,
               right: 20,
+
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-
                   Opacity(
                     opacity: _currentPage > 0 ? 1.0 : 0.0,
                     child: TextButton(
                       onPressed: _currentPage > 0
-                          ? () => _pageController.previousPage(duration: const Duration(milliseconds: 500), curve: Curves.easeInOut)
+                          ? () => _pageController.previousPage(
+                              duration: const Duration(milliseconds: 500),
+                              curve: Curves.easeInOut,
+                            )
                           : null,
-                      child: const Text("Back", style: TextStyle(color: Color(0xffE2BE7F))),
+                      child: const Text(
+                        "Back",
+                        style: TextStyle(color: Color(0xffE2BE7F)),
+                      ),
                     ),
                   ),
-
 
                   SmoothPageIndicator(
                     controller: _pageController,
@@ -73,16 +76,27 @@ class _OnboardingState extends State<Onboarding> {
                       dotWidth: 8,
                     ),
                   ),
+
                   TextButton(
                     onPressed: () {
-                      _pageController.nextPage(
-                        duration: const Duration(milliseconds: 500),
-                        curve: Curves.easeInOut,
-                      );
+                      if (_currentPage == 4) {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => RadioScreen(),
+                          ),
+                        );
+                        print("Go to Home Screen!");
+                      } else {
+                        _pageController.nextPage(
+                          duration: const Duration(milliseconds: 500),
+                          curve: Curves.easeInOut,
+                        );
+                      }
                     },
-                    child: const Text(
-                      "Next",
-                      style: TextStyle(color: Color(0xffE2BE7F)),
+                    child: Text(
+                      _currentPage == 4 ? "Finish" : "Next",
+                      style: const TextStyle(color: Color(0xffE2BE7F)),
                     ),
                   ),
                 ],

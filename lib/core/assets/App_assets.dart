@@ -43,4 +43,10 @@ class AppAssets {
   static const String  udio_quran="assets/images/udio_quran.png";
 
   static const String  welcom="assets/images/welcom.png";
-  static const String  welcom_mosque="assets/images/welcom_mosque.png" ;}
+  static const String  welcom_mosque="assets/images/welcom_mosque.png" ;
+  static const String sebhaBody="assets/images/SebhaBody 1.png" ;
+  static const String topSebha="assets/images/Group 37.png" ;
+
+
+
+}
